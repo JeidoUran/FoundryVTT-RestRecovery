@@ -12,8 +12,8 @@ export default function registerHooks(){
 
     const classes = "rest-recovery-prompt-rest-button" + (minimalUI ? " minimal-ui-button" : "");
 
-    let targetElement = html.querySelector('#players-active .players-list');
-    const tradeButton = html.querySelector(".item-piles-player-list-trade-button");
+    let targetElement = html.querySelector("#players-active .players-list");
+    const tradeButton = html.querySelector(".item-piles-player-list-trade-buttonitem-piles-v13");
     if (itemPiles && tradeButton.length && !minimalUI) {
       tradeButton.innerHTML = `<i class="fas fa-handshake"></i> ${game.i18n.localize("ITEM-PILES.PlayerList.TradeButton")}`;
       tradeButton.classList.add(classes);
@@ -24,10 +24,10 @@ export default function registerHooks(){
       html.append(parent);
     }
     const text = !minimalUI ? (itemPiles && tradeButton.length ? game.i18n.localize("REST-RECOVERY.Dialogs.PromptRest.PlayerListShort") : game.i18n.localize("REST-RECOVERY.Dialogs.PromptRest.PlayerListFull")) : "";
-    const button = document.createElement("button");
-    button.setAttribute("type", "button");
+    const button = document.createElement("div");
+    // button.setAttribute("type", "button");
     button.classList.add(classes);
-    button.innerHTML = `<i class="fa-solid fa-bed"></i>${text}`;
+    button.innerHTML = `<i class="fa-solid fa-bed"></i> ${text}`;
 
     button.addEventListener("click", () => {
       new PromptRestApplication().render(true);
